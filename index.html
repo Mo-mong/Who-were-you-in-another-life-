@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id="page-title">Who Were You in Another Life?</title>
+  <style>
+    body { font-family: sans-serif; background: #f5f5f5; padding: 20px; max-width: 700px; margin: auto; }
+    h1 { font-size: 24px; }
+    .question { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 5px #ccc; }
+    .result { margin-top: 30px; background: #222; color: #fff; padding: 20px; border-radius: 8px; font-size: 18px; }
+    .share-buttons { margin-top: 20px; }
+    .lang-buttons { margin-top: 10px; }
+    button { margin-top: 15px; padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1 id="title">Who Were You in Another Life?</h1>
+  <p id="subtitle">Answer these 7 questions and discover your hidden Avenger identity.</p>
+
+  <div class="lang-buttons">
+    <button onclick="setLanguage('en')">🇺🇸 English</button>
+    <button onclick="setLanguage('ko')">🇰🇷 한국어</button>
+  </div>
+
+  <form id="quiz">
+    <div class="question">
+      <p id="q1">1. You wake up in a mysterious lab with no memory. What do you do?</p>
+      <input type="radio" name="q1" value="ironman"> Analyze devices<br>
+      <input type="radio" name="q1" value="thor"> Find exit<br>
+      <input type="radio" name="q1" value="blackwidow"> Stay quiet<br>
+      <input type="radio" name="q1" value="hulk"> Smash something<br>
+    </div>
+
+    <div class="question">
+      <p id="q2">2. A teammate is injured. You...</p>
+      <input type="radio" name="q2" value="cap"> Protect and lead<br>
+      <input type="radio" name="q2" value="hawkeye"> Cover silently<br>
+      <input type="radio" name="q2" value="ironman"> Joke and fight<br>
+      <input type="radio" name="q2" value="blackpanther"> Move fast and shield<br>
+    </div>
+
+    <div class="question">
+      <p id="q3">3. A stranger offers help. You...</p>
+      <input type="radio" name="q3" value="cap"> Cautiously accept<br>
+      <input type="radio" name="q3" value="thor"> Laugh and welcome<br>
+      <input type="radio" name="q3" value="blackwidow"> Remain wary<br>
+      <input type="radio" name="q3" value="antman"> Cheerfully accept<br>
+    </div>
+
+    <div class="question">
+      <p id="q4">4. Save the world or your loved one?</p>
+      <input type="radio" name="q4" value="cap"> Save the world<br>
+      <input type="radio" name="q4" value="hawkeye"> Save family<br>
+      <input type="radio" name="q4" value="ironman"> Try both<br>
+      <input type="radio" name="q4" value="blackwidow"> Sacrifice yourself<br>
+    </div>
+
+    <div class="question">
+      <p id="q5">5. You face a giant enemy alone. What do you do?</p>
+      <input type="radio" name="q5" value="thor"> Charge in<br>
+      <input type="radio" name="q5" value="blackpanther"> Precise attack<br>
+      <input type="radio" name="q5" value="hulk"> SMASH<br>
+      <input type="radio" name="q5" value="cap"> Wait for team<br>
+    </div>
+
+    <div class="question">
+      <p id="q6">6. After victory, how do you rest?</p>
+      <input type="radio" name="q6" value="antman"> Chill with family<br>
+      <input type="radio" name="q6" value="hulk"> Go to lab<br>
+      <input type="radio" name="q6" value="blackpanther"> Protect your land<br>
+      <input type="radio" name="q6" value="ironman"> Upgrade tech<br>
+    </div>
+
+    <div class="question">
+      <p id="q7">7. How do you want to be remembered?</p>
+      <input type="radio" name="q7" value="cap"> As a leader<br>
+      <input type="radio" name="q7" value="ironman"> As a genius<br>
+      <input type="radio" name="q7" value="blackwidow"> As a silent hero<br>
+      <input type="radio" name="q7" value="antman"> As the fun one<br>
+    </div>
+
+    <button type="submit" id="submit-btn">Reveal My Past Life</button>
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <div class="share-buttons">
+    <p>📤 공유하기:</p>
+    <a href="#" id="share-facebook" target="_blank">Facebook</a> |
+    <a href="#" id="share-twitter" target="_blank">Twitter</a> |
+    <a href="#" id="share-kakao" target="_blank">KakaoStory</a>
+  </div>
+
+  <script>
+    // 공유
+    const pageUrl = encodeURIComponent(window.location.href);
+    document.getElementById("share-facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    document.getElementById("share-twitter").href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=나의 전생은 누구?`;
+    document.getElementById("share-kakao").href = `https://story.kakao.com/share?url=${pageUrl}`;
+
+    // 다국어
+    const lang = {
+      en: {
+        title: "Who Were You in Another Life?",
+        subtitle: "Answer these 7 questions and discover your hidden Avenger identity.",
+        q1: "1. You wake up in a mysterious lab with no memory. What do you do?",
+        q2: "2. A teammate is injured. You...",
+        q3: "3. A stranger offers help. You...",
+        q4: "4. Save the world or your loved one?",
+        q5: "5. You face a giant enemy alone. What do you do?",
+        q6: "6. After victory, how do you rest?",
+        q7: "7. How do you want to be remembered?",
+        submit: "Reveal My Past Life"
+      },
+      ko: {
+        title: "당신의 전생은 누구였을까요?",
+        subtitle: "7개의 질문으로 숨겨진 히어로 정체를 찾아보세요!",
+        q1: "1. 낯선 실험실에서 깨어났습니다. 당신의 첫 행동은?",
+        q2: "2. 동료가 다쳤습니다. 당신은?",
+        q3: "3. 낯선 사람이 도움을 줍니다. 당신은?",
+        q4: "4. 세상과 사랑하는 사람 중 하나를 선택해야 한다면?",
+        q5: "5. 거대한 적 앞에 혼자 섰습니다. 당신은?",
+        q6: "6. 승리 후, 당신은 어떻게 휴식합니까?",
+        q7: "7. 사람들은 당신을 어떻게 기억하길 원하나요?",
+        submit: "결과 보기"
+      }
+    };
+
+    function setLanguage(l) {
+      document.getElementById("page-title").innerText = lang[l].title;
+      document.getElementById("title").innerText = lang[l].title;
+      document.getElementById("subtitle").innerText = lang[l].subtitle;
+      for (let i = 1; i <= 7; i++) {
+        document.getElementById(`q${i}`).innerText = lang[l][`q${i}`];
+      }
+      document.getElementById("submit-btn").innerText = lang[l].submit;
+    }
+
+    // 결과 계산
+    document.getElementById("quiz").onsubmit = function(e) {
+      e.preventDefault();
+      const answers = ['q1','q2','q3','q4','q5','q6','q7']
+        .map(q => document.querySelector(`input[name="${q}"]:checked`)?.value);
+
+      const counts = {};
+      answers.forEach(ans => {
+        if (!ans) return;
+        counts[ans] = (counts[ans] || 0) + 1;
+      });
+
+      let resultKey = Object.entries(counts).sort((a,b) => b[1]-a[1])[0]?.[0];
+
+      const results = {
+        ironman: "🧠 당신은 <b>아이언맨</b>! 창의적이고 대담하며 잊을 수 없는 존재.",
+        cap: "🛡 당신은 <b>캡틴 아메리카</b>! 정의롭고 리더십이 강한 전생의 영웅.",
+        thor: "⚡ 당신은 <b>토르</b>! 감정과 명예를 따르는 강력한 존재.",
+        blackwidow: "🕵️‍♀️ 당신은 <b>블랙 위도우</b>! 냉정하고 전략적인 그림자 속 영웅.",
+        hawkeye: "🏹 당신은 <b>호크아이</b>! 조용하지만 누구보다 정확한 동료.",
+        hulk: "💥 당신은 <b>헐크</b>! 조용한 천재와 내면의 야수, 두 얼굴을 가진 영웅.",
+        blackpanther: "🐱 당신은 <b>블랙 팬서</b>! 기품과 책임을 지닌 왕의 전생.",
+        antman: "🐜 당신은 <b>앤트맨</b>! 유쾌하고 예상 밖의 존재감!"
+      };
+
+      document.getElementById("result").innerHTML =
+        results[resultKey] || "모든 질문에 답해주세요.";
+    };
+  </script>
+</body>
+</html>
