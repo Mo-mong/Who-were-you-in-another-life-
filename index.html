@@ -99,32 +99,40 @@
     document.getElementById("share-kakao").href = `https://story.kakao.com/share?url=${pageUrl}`;
 
     // 다국어
-    const lang = {
-      en: {
-        title: "Who Were You in Another Life?",
-        subtitle: "Answer these 7 questions and discover your hidden Avenger identity.",
-        q1: "1. You wake up in a mysterious lab with no memory. What do you do?",
-        q2: "2. A teammate is injured. You...",
-        q3: "3. A stranger offers help. You...",
-        q4: "4. Save the world or your loved one?",
-        q5: "5. You face a giant enemy alone. What do you do?",
-        q6: "6. After victory, how do you rest?",
-        q7: "7. How do you want to be remembered?",
-        submit: "Reveal My Past Life"
-      },
-      ko: {
-        title: "당신의 전생은 누구였을까요?",
-        subtitle: "7개의 질문으로 숨겨진 히어로 정체를 찾아보세요!",
-        q1: "1. 낯선 실험실에서 깨어났습니다. 당신의 첫 행동은?",
-        q2: "2. 동료가 다쳤습니다. 당신은?",
-        q3: "3. 낯선 사람이 도움을 줍니다. 당신은?",
-        q4: "4. 세상과 사랑하는 사람 중 하나를 선택해야 한다면?",
-        q5: "5. 거대한 적 앞에 혼자 섰습니다. 당신은?",
-        q6: "6. 승리 후, 당신은 어떻게 휴식합니까?",
-        q7: "7. 사람들은 당신을 어떻게 기억하길 원하나요?",
-        submit: "결과 보기"
-      }
-    };
+const lang = {
+  en: {
+    q1: "1. You wake up in a mysterious lab. What do you do?",
+    q2: "2. A stranger approaches you with a mission. How do you react?",
+    q3: "3. The world is in danger. Your priority is?",
+    q4: "4. A loved one is in peril during battle. Your choice?",
+    q5: "5. Final battle time. What’s your fighting style?",
+    q6: "6. What do you do during peace time?",
+    q7: "7. How do people remember you?",
+    q1a1: "Analyze devices", q1a2: "Find exit", q1a3: "Stay quiet", q1a4: "Smash something",
+    q2a1: "Protect and lead", q2a2: "Cover silently", q2a3: "Joke and fight", q2a4: "Move fast and shield",
+    q3a1: "Cautiously accept", q3a2: "Laugh and welcome", q3a3: "Remain wary", q3a4: "Cheerfully accept",
+    q4a1: "Save the world", q4a2: "Save family", q4a3: "Try both", q4a4: "Sacrifice yourself",
+    q5a1: "Charge in", q5a2: "Precise attack", q5a3: "SMASH", q5a4: "Wait for team",
+    q6a1: "Chill with family", q6a2: "Go to lab", q6a3: "Protect your land", q6a4: "Upgrade tech",
+    q7a1: "As a leader", q7a2: "As a genius", q7a3: "As a silent hero", q7a4: "As the fun one"
+  },
+  ko: {
+    q1: "1. 낯선 실험실에서 깨어났습니다. 당신의 첫 행동은?",
+    q2: "2. 누군가 임무를 제안합니다. 당신의 반응은?",
+    q3: "3. 세상이 위험에 빠졌습니다. 당신의 우선순위는?",
+    q4: "4. 전투 중 소중한 사람이 위험합니다. 당신의 선택은?",
+    q5: "5. 최후의 전투입니다. 당신의 전투 스타일은?",
+    q6: "6. 평화로운 시기에 당신은 무엇을 하나요?",
+    q7: "7. 사람들이 당신을 어떻게 기억하길 바라나요?",
+    q1a1: "기기를 분석한다", q1a2: "출구를 찾는다", q1a3: "조용히 지켜본다", q1a4: "일단 부순다",
+    q2a1: "보호하며 이끈다", q2a2: "조용히 엄호한다", q2a3: "농담하며 싸운다", q2a4: "빠르게 방패로 막는다",
+    q3a1: "조심스럽게 받아들인다", q3a2: "웃으며 환영한다", q3a3: "경계한다", q3a4: "밝게 받아들인다",
+    q4a1: "세상을 구한다", q4a2: "사랑하는 사람을 구한다", q4a3: "둘 다 시도한다", q4a4: "자신을 희생한다",
+    q5a1: "정면 돌파한다", q5a2: "정확히 공격한다", q5a3: "부순다", q5a4: "팀을 기다린다",
+    q6a1: "가족과 쉰다", q6a2: "실험실로 간다", q6a3: "영토를 지킨다", q6a4: "기술을 업그레이드한다",
+    q7a1: "리더로", q7a2: "천재로", q7a3: "조용한 영웅으로", q7a4: "재미있는 사람으로"
+  }
+};
 
     function setLanguage(l) {
       document.getElementById("page-title").innerText = lang[l].title;
